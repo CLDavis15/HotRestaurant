@@ -65,11 +65,10 @@
             $.get("/api/reservations", function (data) {
                 console.log(data);
                 if (data) {
-
-                    for (var i = 1; i < data.length; i++) {
-                        if (i < 6) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (i < 5) {
                             var tableDiv = `
-                    <h2 id="name">Table #${i}</h2>
+                    <h2 id="name">Table #${i + 1}</h2>
                     <hr>
                     <div id="stats">
                         <h3><strong>ID:</strong> <span id="customerId">${data[i].customerId}</span></h3>
@@ -85,7 +84,7 @@
                             waitlist.push(i);
                             for (var i = 1; i < waitlist.length; i++) {
                                 var tableDiv = `
-                    <h2 id="name">Table #${i}</h2>
+                    <h2 id="name">Table #${i + 1}</h2>
                     <hr>
                     <div id="stats">
                         <h3><strong>ID:</strong> <span id="customerId">${data[i].customerId}</span></h3>
