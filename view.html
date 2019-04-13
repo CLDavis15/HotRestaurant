@@ -19,18 +19,10 @@
             <h1>Hot Restaraunts</h1>
             <h3>Book your seat before they are all gone!</h3>
             <hr>
-<<<<<<< HEAD
             <a href="/"><button class="btn btn-danger btn-lg" id='home'><span
                         class="fa fa-plus"></span>Home</button></a>
             <a href='/reservations'><button class="btn btn-danger btn-lg" id='reservations'><span
                         class="fa fa-plus"></span>Make Reservations</button></a>
-=======
-            <a href="/reservations">
-                <button class="btn btn-danger btn-lg" id='home'><span class="fa fa-plus"></span>Home</button>
-                <button class="btn btn-danger btn-lg" id='reservations'><span class="fa fa-plus"></span>Make
-                    Reservations</button>
-            </a>
->>>>>>> 68628187988fb50d9ac00e18662e2bba2ba14d49
         </div>
         <div class="row">
 
@@ -73,7 +65,7 @@
                     </div>
                     `
                 for (var i = 0; i < data.length; i++) {
-                    $('#currentTables').append(tableDiv);
+                    $('#tableList').append(tableDiv);
                 }
             }
             else {
