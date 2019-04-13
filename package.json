@@ -1,5 +1,5 @@
 {
-  "name": "HotRestaurant",
+  "name": "hotrestaurant",
   "version": "1.0.0",
   "description": "Building a Restaurant app to reserve at table",
   "main": "server.js",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/CLDavis15/HotRestaurant/issues"
   },
-  "homepage": "https://github.com/CLDavis15/HotRestaurant#readme"
+  "homepage": "https://github.com/CLDavis15/HotRestaurant#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
