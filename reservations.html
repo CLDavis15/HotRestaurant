@@ -72,16 +72,16 @@
         $("#add-btn").on("click", function (event) {
             event.preventDefault();
             var newReservation = {
-                name: $("#name").val().trim(),
-                role: $("#phone-number").val().trim(),
-                age: $("#email").val().trim(),
-                forcePoints: $("#unique-ID").val().trim()
+                customerName: $("#name").val().trim(),
+                phoneNumber: $("#phone-number").val().trim(),
+                customerEmail: $("#email").val().trim(),
+                customerId: $("#unique-ID").val().trim()
             };
 
             // Question: What does this code do??
-            $.post("/api/characters", newReservation)
+            $.post("/api/reservations", newReservation)
                 .then(function (data) {
-                    console.log("add.html", data);
+                    console.log("reservations.html", data);
                 });
         });
     </script>
