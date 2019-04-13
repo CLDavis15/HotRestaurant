@@ -59,10 +59,10 @@
                 var tableDiv = `
                     <h2 id="name">Table #${i}</h2>
                     <div id="stats">
-                        <h3><strong>ID:</strong> <span id="unique-ID">${data[i].ID}</span></h3>
-                        <h3><strong>Name:</strong> <span id="name">${data[i].ID}</span></h3>
+                        <h3><strong>ID:</strong> <span id="unique-ID">${data[i].customerId}</span></h3>
+                        <h3><strong>Name:</strong> <span id="name">${data[i].customerName}</span></h3>
                         <h3><strong>Phone Number:</strong> <span id="phone-number">${data[i].phoneNumber}</span></h3>
-                        <h3><strong>Email:</strong> <span id="email">${data[i].email}</span></h3>
+                        <h3><strong>Email:</strong> <span id="email">${data[i].customerEmail}</span></h3>
                     </div>
                     `
                 for (var i = 0; i < data.length; i++) {
