@@ -43,7 +43,7 @@ app.get("/reservations", function (req, res) {
 });
 
 // Displays all reservations
-app.get("/api/reservatons", function (req, res) {
+app.get("/api/reservations", function (req, res) {
   return res.json(reservations);
 });
 

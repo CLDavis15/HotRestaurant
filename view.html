@@ -58,13 +58,17 @@
 
 
     <script type="text/javascript">
+
+        var waitlist = [];
+
         showTables = function () {
             $.get("/api/reservations", function (data) {
                 console.log(data);
                 if (data) {
 
-                    for (var i = 0; i < 5; i++) {
-                        var tableDiv = `
+                    for (var i = 1; i < data.length; i++) {
+                        if (i < 6) {
+                            var tableDiv = `
                     <h2 id="name">Table #${i}</h2>
                     <hr>
                     <div id="stats">
@@ -75,7 +79,26 @@
                     </div>
                     `
 
-                        $('#tableList').append(tableDiv);
+                            $('#currentTables').append(tableDiv);
+                        }
+                        else {
+                            waitlist.push(i);
+                            for (var i = 1; i < waitlist.length; i++) {
+                                var tableDiv = `
+                    <h2 id="name">Table #${i}</h2>
+                    <hr>
+                    <div id="stats">
+                        <h3><strong>ID:</strong> <span id="customerId">${data[i].customerId}</span></h3>
+                        <h3><strong>Customer Name:</strong> <span id="customerName">${data[i].customerName}</span></h3>
+                        <h3><strong>Phone Number:</strong> <span id="phone-number">${data[i].customerNumber}</span></h3>
+                        <h3><strong>Customer Email:</strong> <span id="email">${data[i].customerEmail}</span></h3>
+                    </div>
+                    `
+
+                                $('#tableList').append(tableDiv);
+                            }
+                        }
+
                     }
                 }
             });
