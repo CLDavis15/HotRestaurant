@@ -19,9 +19,15 @@ var reservations = [
         phoneNumber: "794-777-7777",
         customerEmail: "corbin@gmail.com",
         customerId: "CTaylor"
+    },
+    {
+        customerName: "Caleb",
+        phoneNumber: "828-302-2384",
+        customerEmail: "caleb@gmail.com",
+        customerId: "Dave"
     }
 
-]
+];
 
 
 app.get("/", function(req, res) {
