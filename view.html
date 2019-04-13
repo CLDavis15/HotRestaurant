@@ -53,7 +53,7 @@
 
     <script type="text/javascript">
 
-        $.get("/api/reservations/" + searchedCharacter, function (data) {
+        $.get("/api/reservations/", function (data) {
             console.log(data);
             if (data) {
                 var tableDiv = `
