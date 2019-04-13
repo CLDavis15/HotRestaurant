@@ -31,18 +31,18 @@ var reservations = [
 
 
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/index", function (req, res) {
-  res.sendFile(path.join(__dirname, "index.html"));
+app.get("/view", function (req, res) {
+  res.sendFile(path.join(__dirname, "view.html"));
 });
 
 app.get("/reservations", function (req, res) {
   res.sendFile(path.join(__dirname, "reservations.html"));
 });
 
-// Displays all characters
+// Displays all reservations
 app.get("/api/reservatons", function (req, res) {
   return res.json(reservations);
 });
