@@ -58,13 +58,13 @@
 
 
     <script type="text/javascript">
+        showTables = function () {
+            $.get("/api/reservations/", function (data) {
+                console.log(data);
+                if (data) {
 
-        $.get("/api/reservations/", function (data) {
-            console.log(data);
-            if (data) {
-
-                for (var i = 0; i < 5; i++) {
-                    var tableDiv = `
+                    for (var i = 0; i < 5; i++) {
+                        var tableDiv = `
                     <h2 id="name">Table #${i}</h2>
                     <hr>
                     <div id="stats">
@@ -75,13 +75,13 @@
                     </div>
                     `
 
-                    $('#tableList').append(tableDiv);
+                        $('#tableList').append(tableDiv);
+                    }
                 }
-            }
-            else {
+            });
+        }
 
-            }
-        });
+        showTables();
 
         $("#clearTableBtn").on("click", function () {
             $('#tableList').empty();
