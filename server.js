@@ -29,6 +29,12 @@ var reservations = [
 
 ];
 
+var waitlist = [
+    {
+
+    }
+];
+
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
@@ -47,34 +53,25 @@ app.get("/api/reservations", function (req, res) {
   return res.json(reservations);
 });
 
-app.get("/api/reservations/:customer", function (req, res) {
-  var chosen = req.params.customer;
-
-  console.log(chosen);
-
-  for (var i = 0; i < reservations.length; i++) {
-    if (chosen === reservations[i].customerName) {
-      return res.json(reservations[i]);
-    }
-  }
-
-  return res.json(false);
+app.get("/api/waitlist", function (req, res) {
+    res.json(waitlist);
 });
 
+
 app.post("/api/reservations", function (req, res) {
-  // req.body hosts is equal to the JSON post sent from the user
-  // This works because of our body parsing middleware
-  var newcustomer = req.body;
 
-  // Using a RegEx Pattern to remove spaces from newCustomer
-  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newcustomer.customerName = newcustomer.name.replace(/\s+/g, "").toLowerCase();
+    var newCustomer = req.body;
 
-  console.log(newcustomer);
+  for (var i = 0; i < reservations.length; i++){
+      if (reservations > 5){
+          reservations.push(waitlist);
+      }
+      else {
+        reservations.push(newCustomer);
+      }
+  }
+  res.json(newCustomer);
 
-  reservations.push(newcustomer);
-
-  res.json(newcustomer);
 });
 
 // =============================================================
