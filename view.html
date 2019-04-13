@@ -46,6 +46,12 @@
                     </div>
                 </div>
             </div>
+
+            <p>
+                <a href='#' style='text-decoration: none' id='clearTableBtn'>Clear Tables</a> |
+                <a href='#' style='text-decoration: none'>API Table Link</a> |
+                <a href='#' style='text-decoration: none'>API Wait List</a>
+            </p>
         </div>
 
     </div>
@@ -53,18 +59,22 @@
 
     <script type="text/javascript">
 
-        $.get("/api/reservations/" + searchedCharacter, function (data) {
+        $.get("/api/reservations/", function (data) {
             console.log(data);
             if (data) {
-                var tableDiv = `
-                    <h2 id="name">Caleb</h2>
+
+                for (var i = 0; i < 5; i++) {
+                    var tableDiv = `
+                    <h2 id="name">Table #${i}</h2>
+                    <hr>
                     <div id="stats">
-                        <h3><strong>Phone Number:</strong> <span id="phone-number">828-302-2384</span></h3>
-                        <h3><strong>Customer Email:</strong> <span id="email">caleb@gmail.com</span></h3>
-                        <h3><strong>Unique Id:</strong> <span id="unique-ID">Dave</span></h3>
+                        <h3><strong>ID:</strong> <span id="customerId">${data[i].customerId}</span></h3>
+                        <h3><strong>Customer Name:</strong> <span id="customerName">${data[i].customerName}</span></h3>
+                        <h3><strong>Phone Number:</strong> <span id="phone-number">${data[i].customerNumber}</span></h3>
+                        <h3><strong>Customer Email:</strong> <span id="email">${data[i].customerEmail}</span></h3>
                     </div>
                     `
-                for (var i = 0; i < data.length; i++) {
+
                     $('#tableList').append(tableDiv);
                 }
             }
@@ -73,8 +83,8 @@
             }
         });
 
-        $("#home").on("click", function () {
-
+        $("#clearTableBtn").on("click", function () {
+            $('#tableList').empty();
         });
 
         $("#reservations").on('cick', function () {
